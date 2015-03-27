@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <![endif]-->
   <title></title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <script type="text/javascript">
