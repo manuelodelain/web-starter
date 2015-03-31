@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "gulp build --watch --debug"  
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
