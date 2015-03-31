@@ -4,9 +4,10 @@ var config = require('../config');
 var options = require('../options');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
+var util = require('gulp-util');
  
 gulp.task('styles', function () {
-  gulp.src(config.sass.src)
+  return gulp.src(config.sass.src)
     .pipe(options.debug ? sourcemaps.init() : util.noop())
     .pipe(sass())
     .pipe(autoprefixer(config.autoprefixer))
