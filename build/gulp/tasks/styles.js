@@ -6,20 +6,11 @@ var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var util = require('gulp-util');
 var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
+var notifyError = require('../utils/notify-error');
 
-var onError = notify.onError(function(error){
-  console.log(error);
-
-  return {
-    title: 'Error',
-    message:  '<%= error.message %>' 
-  };
-});
- 
 gulp.task('styles', function () {
   return gulp.src(config.sass.src)
-    .pipe(plumber({errorHandler: onError}))
+    .pipe(plumber({errorHandler: notifyError}))
     .pipe(options.debug ? sourcemaps.init() : util.noop())
     .pipe(sass())
     .pipe(autoprefixer(config.autoprefixer))
