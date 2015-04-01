@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "gulp build --watch --debug"
+    "dev": "gulp build --watch --debug",
+    "prod": "gulp build --minify"
   },
   "author": "",
   "license": "ISC",
