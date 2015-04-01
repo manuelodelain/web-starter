@@ -4,16 +4,22 @@ var config = require('../config');
 var options = require('../options');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var errorNotif = require('../utils/error-notif');
+var gIf = require('gulp-if');
+var minifyCss = require('gulp-minify-css');
 
 gulp.task('styles', function () {
+  if (options.watch){
+    gulp.watch(config.sass.src, ['styles']);
+  }
+
   return gulp.src(config.sass.src)
     .pipe(plumber({errorHandler: errorNotif}))
-    .pipe(options.debug ? sourcemaps.init() : gutil.noop())
+    .pipe(gIf(options.debug, sourcemaps.init()))
     .pipe(sass())
     .pipe(autoprefixer(config.autoprefixer))
-    .pipe(options.debug ? sourcemaps.write() : gutil.noop())
+    .pipe(gIf(options.debug, sourcemaps.write()))
+    .pipe(gIf(options.minify, minifyCss()))
     .pipe(gulp.dest(config.sass.dest));
 });

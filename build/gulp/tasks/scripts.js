@@ -9,13 +9,8 @@ var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var gIf = require('gulp-if');
-var del = require('del');
 
-gulp.task('scripts:clean', function(cb) {
-  del([config.js.dest + '/*'], cb);
-});
-
-gulp.task('scripts', ['scripts:clean'], function(){
+gulp.task('scripts', function(){
   var bundler = browserify({
     entries: config.js.entries,
     debug: options.debug
