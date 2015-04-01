@@ -3,7 +3,7 @@ var config = require('../config');
 var options = require('../options');
 var minifyCss = require('gulp-minify-css');
  
-gulp.task('build', ['styles'], function(){
+gulp.task('build', ['styles', 'scripts'], function(){
   if (options.watch){
     gulp.watch(config.sass.src, ['styles']);
   }
