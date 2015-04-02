@@ -19,4 +19,10 @@ module.exports = {
     dest: baseDest + '/js',
     filename: 'scripts'
   },
+  images: {
+    src: [
+      baseSrc + '/img/**'
+    ],
+    dest: baseDest + '/img'
+  }
 };

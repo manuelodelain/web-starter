@@ -10,10 +10,6 @@ var gIf = require('gulp-if');
 var minifyCss = require('gulp-minify-css');
 
 gulp.task('styles', function () {
-  if (options.watch){
-    gulp.watch(config.sass.src, ['styles']);
-  }
-
   return gulp.src(config.sass.src)
     .pipe(plumber({errorHandler: errorNotif}))
     .pipe(gIf(options.debug, sourcemaps.init()))
