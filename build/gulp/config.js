@@ -2,6 +2,8 @@ var baseSrc = './dev';
 var baseDest = './web';
 
 module.exports = {
+  src: baseSrc,
+  dest: baseDest,
   sass: {
     src: [
       baseSrc + '/sass/**/*.scss'

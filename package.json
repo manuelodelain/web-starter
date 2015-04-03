@@ -5,11 +5,13 @@
   "main": "main.js",
   "scripts": {
     "dev": "gulp build --watch --debug",
+    "sync": "gulp sync --watch --debug",
     "prod": "gulp build --minify"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.5.2",
     "browserify": "^9.0.3",
     "del": "^1.1.1",
     "gulp": "^3.8.11",

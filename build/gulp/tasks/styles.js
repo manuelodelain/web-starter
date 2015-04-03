@@ -8,6 +8,7 @@ var plumber = require('gulp-plumber');
 var errorNotif = require('../utils/error-notif');
 var gIf = require('gulp-if');
 var minifyCss = require('gulp-minify-css');
+var browserSync = require('browser-sync');
 
 gulp.task('styles', function () {
   return gulp.src(config.sass.src)
@@ -17,5 +18,6 @@ gulp.task('styles', function () {
     .pipe(autoprefixer(config.autoprefixer))
     .pipe(gIf(options.debug, sourcemaps.write()))
     .pipe(gIf(options.minify, minifyCss()))
-    .pipe(gulp.dest(config.sass.dest));
+    .pipe(gulp.dest(config.sass.dest))
+    .pipe(gIf(options.watch, browserSync.reload({stream: true})));
 });
