@@ -10,10 +10,6 @@ module.exports = {
     ],
     dest: baseDest + '/css'
   },
-  autoprefixer: {
-    browsers: ['last 2 versions'],
-    cascade: false
-  },
   js: {
     entries: [
       baseSrc + '/js/main.js'

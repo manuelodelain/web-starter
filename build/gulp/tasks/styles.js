@@ -15,7 +15,10 @@ gulp.task('styles', function () {
     .pipe(plumber({errorHandler: errorNotif}))
     .pipe(gIf(options.debug, sourcemaps.init()))
     .pipe(sass())
-    .pipe(autoprefixer(config.autoprefixer))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(gIf(options.debug, sourcemaps.write()))
     .pipe(gIf(options.minify, minifyCss()))
     .pipe(gulp.dest(config.sass.dest))
