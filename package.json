@@ -1,7 +1,6 @@
 {
   "name": "web-boilerplate",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.2.0",
   "scripts": {
     "dev": "gulp build --watch --debug",
     "sync": "gulp sync --watch --debug",
