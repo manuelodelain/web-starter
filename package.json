@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "gulp build --watch --debug",
     "sync": "gulp sync --watch --debug",
-    "prod": "gulp build --minify"
+    "prod": "gulp build --minify",
+    "export": "git archive -o ../../04_EXPORTS/project.zip master",
+    "export:web": "git archive -0 -o ../../04_EXPORTS/project-web.zip master \"web\""
   },
   "author": "",
   "license": "ISC",
