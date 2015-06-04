@@ -8,19 +8,19 @@ module.exports = {
     src: [
       baseSrc + '/sass/**/*.scss'
     ],
-    dest: baseDest + '/css'
+    dest: baseDest + '/assets/css'
   },
   js: {
     entries: [
       baseSrc + '/js/main.js'
     ],
-    dest: baseDest + '/js',
+    dest: baseDest + '/assets/js',
     filename: 'scripts'
   },
   images: {
     src: [
       baseSrc + '/img/**'
     ],
-    dest: baseDest + '/img'
+    dest: baseDest + '/assets/img'
   }
 };

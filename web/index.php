@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <![endif]-->
   <title></title>
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL."assets/css/main.css" ?>">
 </head>
 <body>
   <script type="text/javascript">
@@ -18,6 +18,6 @@
       var BASE_URL = "<?php echo BASE_URL ?>";
       var IS_DEBUG = <?php echo json_encode(isset($_GET["debug"])) ?>;
   </script>
-  <script src="js/scripts.js"></script>
+  <script src="<?php echo BASE_URL."assets/js/scripts.js" ?>"></script>
 </body>
 </html>
