@@ -1,4 +1,4 @@
-<?php require_once('scripts/functions.php'); ?>
+<?php require_once('src/includes.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>

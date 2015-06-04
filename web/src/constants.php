@@ -32,9 +32,9 @@ for ($i = count($tempPath2); $i < count($tempPath1); $i++)
 $urladdr = $_SERVER['HTTP_HOST'] . implode('/', $tempPath3);
 
 if ($urladdr{strlen($urladdr) - 1}== '/')
-   define('BASE_URL', 'http://' . $urladdr);
+   define('BASE_URL', '//' . $urladdr);
 else
-   define('BASE_URL', 'http://' . $urladdr . '/');
+   define('BASE_URL', '//' . $urladdr . '/');
 
 unset($tempPath1, $tempPath2, $tempPath3, $urladdr);
 
