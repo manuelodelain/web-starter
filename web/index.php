@@ -16,6 +16,7 @@
   <script type="text/javascript">
       var ENV = <?php echo ENV ?>;
       var BASE_URL = "<?php echo BASE_URL ?>";
+      var IS_DEBUG = <?php echo json_encode(isset($_GET["debug"])) ?>;
   </script>
   <script src="js/scripts.js"></script>
 </body>
