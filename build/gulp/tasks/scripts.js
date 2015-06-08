@@ -9,7 +9,7 @@ var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var gIf = require('gulp-if');
-var size = require('gulp-filesize');
+var size = require('gulp-size');
 var duration = require('gulp-duration');
 
 gulp.task('scripts', function(){
@@ -34,8 +34,10 @@ gulp.task('scripts', function(){
         .pipe(gIf(options.minify, buffer()))
         .pipe(gIf(options.minify, uglify()))
         .pipe(duration('bundle time'))
-        .pipe(gulp.dest('./'))
-        .pipe(gIf(options.minify, size()));
+        .pipe(gIf(options.minify, size({
+          title: 'bundle size'
+        })))
+        .pipe(gulp.dest('./'));
     }
 
     bundle();
