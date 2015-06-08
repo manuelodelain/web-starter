@@ -11,16 +11,18 @@ var minifyCss = require('gulp-minify-css');
 var browserSync = require('browser-sync');
 
 gulp.task('styles', function () {
-  return gulp.src(config.sass.src)
-    .pipe(plumber({errorHandler: errorNotif}))
-    .pipe(gIf(options.debug, sourcemaps.init()))
-    .pipe(sass())
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(gIf(options.debug, sourcemaps.write()))
-    .pipe(gIf(options.minify, minifyCss()))
-    .pipe(gulp.dest(config.sass.dest))
-    .pipe(gIf(options.watch, browserSync.reload({stream: true})));
+  config.sass.forEach(function(item){
+    gulp.src(item.src)
+      .pipe(plumber({errorHandler: errorNotif}))
+      .pipe(gIf(options.debug, sourcemaps.init()))
+      .pipe(sass())
+      .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
+      .pipe(gIf(options.debug, sourcemaps.write()))
+      .pipe(gIf(options.minify, minifyCss()))
+      .pipe(gulp.dest(item.dest))
+      .pipe(gIf(options.watch, browserSync.reload({stream: true})));
+  });
 });

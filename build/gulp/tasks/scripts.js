@@ -11,27 +11,29 @@ var uglify = require('gulp-uglify');
 var gIf = require('gulp-if');
 
 gulp.task('scripts', function(){
-  var bundler = browserify({
-    entries: config.js.entries,
-    debug: options.debug
+  config.js.forEach(function(item){
+    var bundler = browserify({
+      entries: item.entries,
+      debug: options.debug
+    });
+
+    if (options.watch){
+      bundler = watchify(bundler);
+      bundler.on('update', bundle);
+    }
+
+    function bundle(){
+      return bundler.bundle()
+        .on('error', errorNotif)
+        .pipe(source(item.dest + '/' + item.filename + '.js'))
+        .pipe(gIf(options.debug, buffer()))
+        .pipe(gIf(options.debug, sourcemaps.init()))
+        .pipe(gIf(options.debug, sourcemaps.write()))
+        .pipe(gIf(options.minify, buffer()))
+        .pipe(gIf(options.minify, uglify()))
+        .pipe(gulp.dest('./'));
+    }
+
+    bundle();
   });
-
-  if (options.watch){
-    bundler = watchify(bundler);
-    bundler.on('update', bundle);
-  }
-
-  function bundle(){
-    return bundler.bundle()
-      .on('error', errorNotif)
-      .pipe(source(config.js.dest + '/' + config.js.filename + '.js'))
-      .pipe(gIf(options.debug, buffer()))
-      .pipe(gIf(options.debug, sourcemaps.init({loadMaps: true})))
-      .pipe(gIf(options.debug, sourcemaps.write('./')))
-      .pipe(gIf(options.minify, buffer()))
-      .pipe(gIf(options.minify, uglify()))
-      .pipe(gulp.dest('./'));
-  }
-
-  return bundle();
 });

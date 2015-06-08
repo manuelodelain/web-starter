@@ -4,7 +4,12 @@ var options = require('../options');
  
 gulp.task('build', ['clean', 'styles', 'scripts', 'images'], function(){
   if (options.watch){
-    gulp.watch(config.sass.src, ['styles']);
-    gulp.watch(config.images.src, ['images']);
+    config.sass.forEach(function(item){
+      gulp.watch(item.src, ['styles']);
+    });
+
+    config.images.forEach(function(item){
+      gulp.watch(item.src, ['images']);
+    });
   }
 });

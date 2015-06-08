@@ -6,11 +6,13 @@ var pngquant = require('imagemin-pngquant');
 var newer = require('gulp-newer');
 
 gulp.task('images', function() {
-  return gulp.src(config.images.src)
-    .pipe(newer(config.images.dest))
-    .pipe(imagemin({
-      progressive: true,
-      use: [pngquant()]
-    }))
-    .pipe(gulp.dest(config.images.dest));
+  config.images.forEach(function(item){
+    gulp.src(item.src)
+      .pipe(newer(item.dest))
+      .pipe(imagemin({
+        progressive: true,
+        use: [pngquant()]
+      }))
+      .pipe(gulp.dest(item.dest));
+  });
 });

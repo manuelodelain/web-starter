@@ -9,5 +9,11 @@ gulp.task('sync', function() {
     proxy: 'localhost'
   });
 
-  gulp.watch([config.src + '/**/*', '!' + config.sass.dest + '/*.css'], browserSync.reload);
+  var patterns = [config.src + '/**/*'];
+
+  config.sass.forEach(function(item){
+    patterns.push('!' + item.dest + '/*.css');
+  });
+
+  gulp.watch(patterns, browserSync.reload);
 });
