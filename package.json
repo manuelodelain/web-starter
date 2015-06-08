@@ -1,5 +1,5 @@
 {
-  "name": "web-boilerplate",
+  "name": "web-starter",
   "version": "0.2.0",
   "scripts": {
     "dev": "gulp build && gulp sync --watch --debug",
