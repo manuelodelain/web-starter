@@ -9,6 +9,8 @@ var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var gIf = require('gulp-if');
+var size = require('gulp-filesize');
+var duration = require('gulp-duration');
 
 gulp.task('scripts', function(){
   config.js.forEach(function(item){
@@ -31,7 +33,9 @@ gulp.task('scripts', function(){
         .pipe(gIf(options.debug, sourcemaps.write()))
         .pipe(gIf(options.minify, buffer()))
         .pipe(gIf(options.minify, uglify()))
-        .pipe(gulp.dest('./'));
+        .pipe(duration('bundle time'))
+        .pipe(gulp.dest('./'))
+        .pipe(gIf(options.minify, size()));
     }
 
     bundle();
