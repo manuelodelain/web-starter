@@ -1,5 +1,5 @@
-web boilerplate
-===============
+# Starter for web projects
+
 
 
 
