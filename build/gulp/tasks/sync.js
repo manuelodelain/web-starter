@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var config = require('../config');
 var browserSync = require('browser-sync');
+var watch = require('gulp-watch');
 
 gulp.task('sync', function() {
   browserSync({
@@ -19,9 +20,9 @@ gulp.task('sync', function() {
     patterns.push(item.dest + '/*.{jpg,gif,png,svg}');
   });
 
-  config.sass.forEach(function(item){
-    patterns.push('!' + item.dest + '/*.css');
-  });
-  // console.log(patterns);
-  gulp.watch(patterns, browserSync.reload);
+  // config.sass.forEach(function(item){
+  //   patterns.push('!' + item.dest + '/*.css');
+  // });
+  
+  watch(patterns, browserSync.reload);
 });

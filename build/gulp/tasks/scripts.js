@@ -34,9 +34,9 @@ gulp.task('scripts', function(){
         .pipe(gIf(options.minify, buffer()))
         .pipe(gIf(options.minify, uglify()))
         .pipe(duration('bundle time'))
-        .pipe(gIf(options.minify, size({
+        .pipe(size({
           title: 'bundle size'
-        })))
+        }))
         .pipe(gulp.dest('./'));
     }
 
