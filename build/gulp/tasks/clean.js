@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var config = require('../config');
+var options = require('../options');
 var del = require('del');
 
 gulp.task('clean', function(cb) {
