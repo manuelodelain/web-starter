@@ -23,6 +23,6 @@ gulp.task('styles', function () {
       .pipe(gIf(options.debug, sourcemaps.write()))
       .pipe(gIf(options.minify, minifyCss()))
       .pipe(gulp.dest(item.dest))
-      .pipe(gIf(options.watch, browserSync.reload({stream: true})));
+      .pipe(browserSync.stream());
   });
 });

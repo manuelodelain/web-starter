@@ -6,14 +6,22 @@ gulp.task('sync', function() {
   browserSync({
     browser: 'google chrome',
     minify: false,
-    proxy: 'localhost'
+    proxy: 'localhost/web-starter/web'
   });
 
-  var patterns = [config.src + '/**/*'];
+  var patterns = [];
+
+  config.js.forEach(function(item){
+    patterns.push(item.dest + '/*.js');
+  });
+
+  config.images.forEach(function(item){
+    patterns.push(item.dest + '/*.{jpg,gif,png,svg}');
+  });
 
   config.sass.forEach(function(item){
     patterns.push('!' + item.dest + '/*.css');
   });
-
+  // console.log(patterns);
   gulp.watch(patterns, browserSync.reload);
 });

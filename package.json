@@ -2,7 +2,7 @@
   "name": "web-starter",
   "version": "0.2.0",
   "scripts": {
-    "dev": "gulp build && gulp sync --watch --debug",
+    "dev": "gulp build --watch --debug",
     "prod": "gulp build --minify",
     "export": "git archive -o temp/project.zip master",
     "export:web": "git archive -0 -o temp/project-web.zip master \"web\""
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.5.2",
+    "browser-sync": "^2.7.6",
     "browserify": "^9.0.3",
     "del": "^1.1.1",
     "gulp": "^3.8.11",

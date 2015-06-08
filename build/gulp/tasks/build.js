@@ -11,5 +11,7 @@ gulp.task('build', ['clean', 'styles', 'scripts', 'images'], function(){
     config.images.forEach(function(item){
       gulp.watch(item.src, ['images']);
     });
+
+    gulp.start('sync');
   }
 });
