@@ -14,15 +14,14 @@ gulp.task('deploy', function() {
   });
 
   var globs = [
-    'web/**',
-    '!web/.htaccess',
-    '!web/config.php'
+    './web/**',
+    '!./web/config.php'
   ];
 
   return gulp.src(globs, {
-    base: '.',
+    base: './web/',
     buffer: false
   })
-    .pipe(conn.newer('/www'))
-    .pipe(conn.dest('/www'));
+    .pipe(conn.newer('www/'))
+    .pipe(conn.dest('www/'));
 });
