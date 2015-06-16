@@ -3,7 +3,7 @@ var gutil = require('gulp-util');
 var ftp = require('vinyl-ftp');
 var ftpConfig = require('../ftp-config');
 
-gulp.task('ftp', function() {
+gulp.task('deploy', function() {
 
   var conn = ftp.create({
     host: ftpConfig.host,
