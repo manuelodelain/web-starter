@@ -1,4 +1,3 @@
-# html5 pushstate (history) support:
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -17,7 +16,6 @@ AddType audio/ogg .ogg
 AddType audio/mp4 .m4a
 AddType audio/wav /wav
 
-# Gzip compression
 #<IfModule mod_gzip.c>
 #  mod_gzip_on Yes
 #  mod_gzip_dechunk Yes
