@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var ftp = require('vinyl-ftp');
-var ftpConfig = require('../ftp-config');
+var ftpConfig = require('../ftp-config.SAMPLE');
 
 gulp.task('deploy', function() {
 
