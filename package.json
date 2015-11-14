@@ -4,8 +4,7 @@
   "scripts": {
     "dev": "gulp build --watch --debug",
     "prod": "gulp build --minify",
-    "export": "git archive -o temp/project.zip master",
-    "export:web": "git archive -0 -o temp/project-web.zip master \"web\""
+    "archive": "git archive -0 -o temp/archive_$(date +\"%m-%d-%y\").zip master"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +27,7 @@
     "gulp-uglify": "^1.1.0",
     "gulp-util": "^3.0.5",
     "gulp-watch": "^4.2.4",
+    "gulp-zip": "^3.0.2",
     "imagemin-pngquant": "^4.0.0",
     "install": "^0.3.0",
     "minimist": "^1.1.1",
