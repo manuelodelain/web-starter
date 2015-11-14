@@ -1,9 +1,12 @@
+node_modules/
 .DS_Store
 *.log
-node_modules/
-temp/*
-!temp/.gitkeep
-!dev/js/node_modules/
 *.sublime-project
 *.sublime-workspace
+
+!dev/js/node_modules/
+
+temp/*
+!temp/.gitkeep
+
 build/gulp/ftp-config.js
