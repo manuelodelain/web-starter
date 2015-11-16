@@ -20,5 +20,5 @@ gulp.task('clean', function(cb) {
     });
   }
 
-  del(patterns, cb);
+  return del(patterns, cb);
 });
