@@ -1,12 +1,13 @@
 node_modules/
+app/vendor/
+app/templates/cache/
+
 .DS_Store
 *.log
 *.sublime-project
 *.sublime-workspace
+temp/*
+build/gulp/ftp-config.js
 
 !dev/js/node_modules/
-
-temp/*
 !temp/.gitkeep
-
-build/gulp/ftp-config.js
