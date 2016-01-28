@@ -8,6 +8,7 @@ app/templates/cache/
 *.sublime-workspace
 temp/*
 build/gulp/ftp-config.js
+app/config.php
 
 !dev/js/node_modules/
 !temp/.gitkeep
