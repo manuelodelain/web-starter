@@ -37,6 +37,7 @@ $app->view->parserOptions = array(
 
 // init twig view extensions
 $app->view->parserExtensions = array(
+  new \Slim\Views\TwigExtension(),
   new Twig_Extension_Debug()
 );
 
