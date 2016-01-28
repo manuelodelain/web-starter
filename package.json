@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "gulp build --watch --debug",
     "prod": "gulp build --minify",
+    "export": "gulp export",
     "archive": "git archive -0 -o temp/archive_$(date +\"%m-%d-%y\").zip master"
   },
   "author": "",

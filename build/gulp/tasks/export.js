@@ -9,10 +9,15 @@ gulp.task('export', function () {
 
   var globs = [
     './web/**',
-    './web/.htaccess'
+    '!./web/.htaccess',
+    './app/**',
+    '!./app/templates/cache',
+    '!./app/templates/cache/**',
+    '!./app/config.php',
+    '!./app/config.SAMPLE.php'
   ];
 
   return gulp.src(globs, {base: "."})
-    .pipe(zip('export_' + month + '-' + day + '-' + year + '.zip'))
+    .pipe(zip('export_' + month + '-' + day + '-' + year + '_' + date.getTime() + '.zip'))
     .pipe(gulp.dest('./temp/'));
 });
