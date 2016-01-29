@@ -1,6 +1,7 @@
 node_modules/
 app/vendor/
 app/templates/cache/
+web/
 
 .DS_Store
 *.log
