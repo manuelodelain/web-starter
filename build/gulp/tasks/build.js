@@ -3,7 +3,7 @@ var options = require('../options');
 var target = require('../config').targets[options.target];
 var watch = require('gulp-watch');
  
-gulp.task('build', ['clean', 'styles', 'scripts', 'images'], function(){
+gulp.task('build', ['clean', 'static', 'styles', 'scripts', 'images'], function(){
   if (options.watch){
     watch(target.sass.src, function(){
       gulp.start('styles');
