@@ -8,11 +8,13 @@
 
 - dev: client side sources
 
+- static: files for building the public folder (web/)
+
 - node_modules: npm packages (auto generated)
 
-- temp : project exports
+- exports: project exports (auto generated)
 
-- web: public stuff
+- web: public stuff (auto generated)
 
 ## Technos
 
