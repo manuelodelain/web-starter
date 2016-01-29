@@ -1,9 +1,11 @@
+var baseStatic = './static';
 var baseSrc = './dev';
 var baseDest = './web';
 
 module.exports = {
   src: baseSrc,
   dest: baseDest,
+  static: baseStatic,
   targets: {
     default: {
       sass: {
@@ -17,14 +19,14 @@ module.exports = {
       },
       images: {
         src: [
-          baseSrc + '/img/**/*.{jpg,gif,png,svg}', 
-          '!' + baseSrc + '/img/sprite/**', 
+          baseStatic + '/assets/img/**/*.{jpg,gif,png,svg}', 
+          '!' + baseStatic + '/assets/img/sprite/**', 
         ],
         dest: baseDest + '/assets/img'
       },
       sprite: {
         src: [
-          baseSrc + '/img/sprite/*.svg'
+          baseStatic + '/assets/img/sprite/*.svg'
         ],
         template: './app/templates/partials/sprite-template.twig',
         destFile: 'sprite.twig',
