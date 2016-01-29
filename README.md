@@ -52,9 +52,9 @@ Launch: `npm run dev`
 
 Launch production task for optimizing assets: `npm run prod`  
   
-Export a package: `npm run export`  
+Export a package: `npm run export:dist`  
   
-In the temp/ folder, there is the exported package with these folders inside:  
+Inside the exports/dist/ folder, there is the exported package with these folders:  
   - app/  
   - web/
   
@@ -65,6 +65,11 @@ You have to configure them manualy:
 
 - app/config.php  
 - web/.htaccess  
+
+## Archive project sources
+
+Export the project: `npm run export:archive`  
+Get the archive file inside the exports/archive/ folder.
 
 
 
