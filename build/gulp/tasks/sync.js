@@ -1,28 +1,23 @@
 var gulp = require('gulp');
-var config = require('../config');
+var options = require('../options');
+var target = require('../config').targets[options.target];
 var browserSync = require('browser-sync');
 var watch = require('gulp-watch');
 
 gulp.task('sync', function() {
   browserSync({
-    browser: 'google chrome',
     minify: false,
-    proxy: 'localhost/web-starter/web'
+    open: false,
+    proxy: target.sync.proxy
   });
 
-  var patterns = [];
+  var patterns = [
+    target.js.dest + '/*.js',
+    // '!' + target.sass.dest + '/*.css',
+    target.images.dest + '/*.{jpg,gif,png,svg}',
+    './app/templates/**/*.twig',
+    './app/data/**'
+  ];
 
-  config.js.forEach(function(item){
-    patterns.push(item.dest + '/*.js');
-  });
-
-  config.images.forEach(function(item){
-    patterns.push(item.dest + '/*.{jpg,gif,png,svg}');
-  });
-
-  // config.sass.forEach(function(item){
-  //   patterns.push('!' + item.dest + '/*.css');
-  // });
-  
   watch(patterns, browserSync.reload);
 });

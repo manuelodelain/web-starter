@@ -31,7 +31,7 @@ module.exports = {
         dest: './app/templates/partials'
       },
       sync: {
-        proxy: 'my-project.dev'
+        proxy: 'localhost/web-starter/web'
       }
     },
     mobile: {}
