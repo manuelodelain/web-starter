@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var ftp = require('vinyl-ftp');
-var ftpConfig = require('../ftp-config.SAMPLE');
+var ftpConfig = require('../ftp-config');
 
 gulp.task('deploy', function() {
 
@@ -15,13 +15,17 @@ gulp.task('deploy', function() {
 
   var globs = [
     './web/**',
-    '!./web/config.php'
+    '!./web/.htaccess',
+    './app/**',
+    '!./app/templates/cache',
+    '!./app/config.php',
+    '!./app/config.SAMPLE.php'
   ];
 
   return gulp.src(globs, {
-    base: './web/',
+    base: '.',
     buffer: false
   })
-    .pipe(conn.newer('www/'))
-    .pipe(conn.dest('www/'));
+    .pipe(conn.newer(ftpConfig.dest))
+    .pipe(conn.dest(ftpConfig.dest));
 });
