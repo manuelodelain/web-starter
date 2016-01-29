@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "gulp build --watch --debug",
     "prod": "gulp build --minify",
-    "export": "gulp export",
-    "archive": "git archive -0 -o temp/archive_$(date +\"%m-%d-%y\").zip master"
+    "export:dist": "gulp export --dist",
+    "export:archive": "gulp export --archive"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +32,7 @@
     "imagemin-pngquant": "^4.0.0",
     "install": "^0.3.0",
     "minimist": "^1.1.1",
+    "mkdirp": "^0.5.1",
     "npm": "^3.4.0",
     "require-dir": "^0.3.0",
     "vinyl-buffer": "^1.0.0",
