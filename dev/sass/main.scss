@@ -1,7 +1,12 @@
 @import "ease";
 @import "base";
 
-//  app
+// mixins
+// @import "mixins/media";
+// @import "mixins/font";
+
+/* APPLICATION */
+
 @import "app/vars";
 @import "app/fonts";
 @import "app/common";
