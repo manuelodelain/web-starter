@@ -46,6 +46,10 @@
 
 - Install js packages: `npm install`
 
+- In the `app/` folder, duplicate the `config.SAMPLE.php` file and rename it `config.php`
+
+- [Optionnal] If you want to use Browsersync with a proxy, configure it in the `build/gulp/config.js` file (`sync` field for each target). Default to `localhost/web-starter/web`
+
 ## Development
 
 Launch: `npm run dev`
