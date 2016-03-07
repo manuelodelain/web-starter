@@ -54,7 +54,7 @@ Launch: `npm run dev`
 
 Launch production task for optimizing assets: `npm run prod`  
   
-Export a package: `npm run export:dist`  
+Export a package: `npm run export-dist`  
   
 Inside the exports/dist/ folder, there is the exported package with these folders:  
   - app/  
@@ -70,7 +70,7 @@ You have to configure them manualy:
 
 ## Archive project sources
 
-Export the project: `npm run export:archive`  
+Export the project: `npm run export-archive`  
 Get the archive file inside the exports/archive/ folder.
 
 
