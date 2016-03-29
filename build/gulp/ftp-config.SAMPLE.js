@@ -1,6 +1,7 @@
 module.exports = {
   host: 'mywebsite.tld',
   user: 'me',
-  password: 'mypass'
+  password: 'mypass',
+  dest: './'
 };
 
