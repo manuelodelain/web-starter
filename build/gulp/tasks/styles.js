@@ -7,7 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');
 var errorNotif = require('../utils/error-notif');
 var gIf = require('gulp-if');
-var minifyCss = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync');
 
 gulp.task('styles', function () {
@@ -20,7 +20,7 @@ gulp.task('styles', function () {
       cascade: false
     }))
     .pipe(gIf(options.debug, sourcemaps.write()))
-    .pipe(gIf(options.minify, minifyCss()))
+    .pipe(gIf(options.minify, cleanCSS()))
     .pipe(gulp.dest(target.sass.dest))
     .pipe(browserSync.stream());
 });
