@@ -3,7 +3,7 @@ var config = require('../config');
 var options = require('../options');
 var newer = require('gulp-newer');
 
-gulp.task('static', ['clean'], function() {
+gulp.task('static', function() {
   return gulp.src([
       config.static + '/**/*', 
       config.static + '/**/.htaccess',
