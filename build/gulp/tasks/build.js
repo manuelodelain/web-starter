@@ -15,10 +15,6 @@ gulp.task('build', function(cb){
           gulp.start('images');
         });
 
-        // watch(target.sprite.src, function(){
-        //   gulp.start('sprite');
-        // });
-
         gulp.start('sync');
       }
 
