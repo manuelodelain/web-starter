@@ -22,6 +22,15 @@ module.exports = {
           baseDest + '/**/*'
         ]
       },
+      static: {
+        src: [
+          baseStatic + '/**/*',
+          baseStatic + '/.htaccess',
+          '!' + baseStatic + '/assets/img',
+          '!' + baseStatic + '/assets/img/**/*'
+          ],
+          dest: baseDest
+      },
       sass: {
         src: baseSrc + '/sass/**/*.scss',
         dest: baseDest + '/assets/css'
