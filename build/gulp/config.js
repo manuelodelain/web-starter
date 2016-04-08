@@ -17,6 +17,11 @@ module.exports = {
   ],
   targets: {
     default: {
+      clean: {
+        src: [
+          baseDest + '/**/*'
+        ]
+      },
       sass: {
         src: baseSrc + '/sass/**/*.scss',
         dest: baseDest + '/assets/css'

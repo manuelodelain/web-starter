@@ -5,15 +5,13 @@ var target = require('../config').targets[options.target];
 var del = require('del');
 
 gulp.task('clean', function(cb) {
-  var patterns = [
-    target.sass.dest + '/*', 
-    target.js.dest + '/*.js'
-  ];
+  var patterns = [];
 
-  if (!options.debug){
-    // patterns.push(target.images.dest + '/*');
-    // delete complete folder
-    patterns.push(config.dest);
+  if (options.debug){
+    patterns.push(target.sass.dest + '/*');
+    patterns.push(target.js.dest + '/*.js');
+  }else{
+    patterns.concat(target.clean.src);
   }
 
   return del(patterns, cb);
