@@ -6,6 +6,15 @@ module.exports = {
   src: baseSrc,
   dest: baseDest,
   static: baseStatic,
+  distFiles: [
+    baseDest + '/**',
+    '!' + baseDest + '/.htaccess',
+    './app/**',
+    '!./app/templates/cache',
+    '!./app/templates/cache/**',
+    '!./app/config.php',
+    '!./app/config.SAMPLE.php'
+  ],
   targets: {
     default: {
       sass: {

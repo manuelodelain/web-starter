@@ -4,6 +4,7 @@ var options = require('../options');
 var fs = require('fs');
 var exec = require('child_process').exec;
 var mkdirp = require('mkdirp');
+var config = require('../config');
 
 gulp.task('export', function (cb) {
   var date = new Date();
@@ -43,20 +44,11 @@ gulp.task('export', function (cb) {
   if (options.dist){
     // dist export
     
-    var globs = [
-      './web/**',
-      '!./web/.htaccess',
-      './app/**',
-      '!./app/templates/cache',
-      '!./app/templates/cache/**',
-      '!./app/config.php',
-      '!./app/config.SAMPLE.php'
-    ];
-
-    return gulp.src(globs, {base: "."})
+    return gulp.src(config.distFiles, {base: "."})
       .pipe(zip(fileName))
       .pipe(gulp.dest(folder + subFolder));
-    }else{
+
+  }else{
       // archive export
       
       // create folders if needed 
@@ -69,6 +61,7 @@ gulp.task('export', function (cb) {
         console.log(stderr);
         cb(err);
       });
-    }
+  }
+  
 });
 

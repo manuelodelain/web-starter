@@ -2,19 +2,11 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var ftp = require('vinyl-ftp');
 var fs = require('fs');
+var config = require('../config');
 
 gulp.task('deploy', function(cb) {
 
   var path = './build/gulp/ftp-config.json';
-  
-  var globs = [
-    './web/**',
-    '!./web/.htaccess',
-    './app/**',
-    '!./app/templates/cache',
-    '!./app/config.php',
-    '!./app/config.SAMPLE.php'
-  ];
 
   function runTask(file){
     var ftpConfig = JSON.parse(file);
@@ -26,7 +18,7 @@ gulp.task('deploy', function(cb) {
       log: gutil.log
     });
 
-    gulp.src(globs, {base: '.', buffer: false})
+    gulp.src(config.distFiles, {base: '.', buffer: false})
       .pipe(conn.newer(ftpConfig.dest))
       .pipe(conn.dest(ftpConfig.dest))
       .on('end', cb);
