@@ -2,12 +2,12 @@ node_modules/
 app/vendor/
 app/templates/cache/
 web/
+exports/
 
 .DS_Store
 *.log
 *.sublime-project
 *.sublime-workspace
-temp/*
 build/gulp/ftp-config.json
 app/config.php
 
