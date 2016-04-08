@@ -38,14 +38,6 @@ module.exports = {
         ],
         dest: baseDest + '/assets/img'
       },
-      sprite: {
-        src: [
-          baseStatic + '/assets/img/sprite/*.svg'
-        ],
-        template: './app/templates/partials/sprite-template.twig',
-        destFile: 'sprite.twig',
-        dest: './app/templates/partials'
-      },
       sync: {
         proxy: 'localhost/web-starter/web'
       }
