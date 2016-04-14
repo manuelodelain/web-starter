@@ -1,24 +1,48 @@
 //media queries
 
-@mixin screen($size){
-  @media #{$size}{
+@mixin media($mediaquery){
+  @media #{$mediaquery}{
     @content;
   }
 }
 
-@mixin min-screen($res){
-  @media screen and (min-width: $res){
+// inspired by https://github.com/sass-mq/sass-mq/blob/master/_mq.scss
+
+@function get-mediaquery-size($size, $min: false, $max: false, $and: false){
+  $media-query: 'screen ';
+
+  @if $min {
+    $media-query: '#{$media-query} and (min-#{$size}: #{$min})';
+  }
+
+  @if $max {
+    $media-query: '#{$media-query} and (max-#{$size}: #{$max})';
+  }
+
+  @if $and { 
+    $media-query: '#{$media-query} and #{$and}'; 
+  }
+
+  @return $media-query;
+}
+
+@mixin media-width($min: false, $max: false, $and: false){
+  $media-query: get-mediaquery-size(width, $min, $max, $and);
+
+  @media #{$media-query}{
     @content;
   }
 }
 
-@mixin max-screen($res){
-  @media screen and (max-width: $res){
+@mixin media-height($min: false, $max: false, $and: false){
+  $media-query: get-mediaquery-size(height, $min, $max, $and);
+
+  @media #{$media-query}{
     @content;
   }
 }
 
-@mixin retina(){
+@mixin media-retina(){
   @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
   only screen and (   min--moz-device-pixel-ratio: 2),
