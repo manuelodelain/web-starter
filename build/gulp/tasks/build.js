@@ -15,6 +15,10 @@ gulp.task('build', function(cb){
           gulp.start('images');
         });
 
+        watch(target.static.src, function(){
+          gulp.start('static');
+        });
+
         gulp.start('sync');
       }
 
