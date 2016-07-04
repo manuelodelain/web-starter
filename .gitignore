@@ -6,10 +6,7 @@ exports/
 
 .DS_Store
 *.log
-*.sublime-project
-*.sublime-workspace
 build/gulp/ftp-config.json
 app/config.php
 
 !dev/js/node_modules/
-!temp/.gitkeep
