@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var options = require('../options');
 var gutil = require('gulp-util');
 var ftp = require('vinyl-ftp');
 var fs = require('fs');
@@ -9,7 +10,8 @@ gulp.task('deploy', function(cb) {
   var path = './build/gulp/ftp-config.json';
 
   function runTask(file){
-    var ftpConfig = JSON.parse(file);
+    var target = options.target || 'staging';
+    var ftpConfig = JSON.parse(file)[target];
     var conn = ftp.create({
       host: ftpConfig.host,
       user: ftpConfig.user,

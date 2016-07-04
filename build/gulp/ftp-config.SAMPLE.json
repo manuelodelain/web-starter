@@ -1,6 +1,14 @@
 {
-  "host": "mywebsite.tld",
-  "user": "me",
-  "password": "mypass",
-  "dest": "./"
+  "staging": {
+    "host": "mywebsite.tld",
+    "user": "me",
+    "password": "mypass",
+    "dest": "./"
+  },
+  "prod": {
+    "host": "mywebsite.tld",
+    "user": "me",
+    "password": "mypass",
+    "dest": "./"
+  }
 }

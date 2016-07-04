@@ -6,7 +6,9 @@
     "prod": "gulp build --minify",
     "export-dist": "gulp export --dist",
     "export-archive": "gulp export --archive",
-    "deploy": "gulp deploy"
+    "deploy": "gulp deploy",
+    "deploy-staging": "npm run prod && npm run deploy -- --target=staging",
+    "deploy-prod": "npm run prod && npm run deploy -- --target=prod"
   },
   "author": "",
   "license": "ISC",
