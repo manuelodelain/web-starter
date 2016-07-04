@@ -6,10 +6,10 @@ if (@$_SERVER["APPLICATION_ENV"] == "local"
   || strpos($_SERVER["HTTP_HOST"],  "127.0.0.1") !== false) 
 {
   $env = 'dev';
-} else if (strpos(@$_SERVER["SERVER_ENV"], "preprod") !== false 
+} else if (strpos(@$_SERVER["SERVER_ENV"], "staging") !== false 
   || strpos($_SERVER["HTTP_HOST"],  "manuelodelain.com") !== false)
 {
-  $env = 'preprod';
+  $env = 'staging';
 } else {
   $env = 'prod';
 }
