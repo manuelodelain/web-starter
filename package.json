@@ -7,8 +7,8 @@
     "export-dist": "gulp export --dist",
     "export-archive": "gulp export --archive",
     "deploy": "gulp deploy",
-    "deploy-staging": "npm run prod && npm run deploy -- --target=staging",
-    "deploy-prod": "npm run prod && npm run deploy -- --target=prod"
+    "deploy-staging": "npm run prod && npm run deploy",
+    "deploy-prod": "npm run prod && npm run deploy -- --prod"
   },
   "author": "",
   "license": "ISC",

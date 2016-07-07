@@ -10,7 +10,7 @@ gulp.task('deploy', function(cb) {
   var path = './build/gulp/ftp-config.json';
 
   function runTask(file){
-    var target = options.target || 'staging';
+    var target = options.prod ? 'prod' : 'staging';
     var ftpConfig = JSON.parse(file)[target];
     var conn = ftp.create({
       host: ftpConfig.host,
