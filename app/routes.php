@@ -1,17 +1,12 @@
 <?php 
 
-// init app routes
-foreach ($routesData as $route => $routeData){
+/**
+ * home
+ */
+$app->get('/', function() use ($app) {
+  $view = 'views/home.twig';
 
-  $app->get($route, function() use ($app, $routeData) {
-    $view = 'views/' . $routeData['view'] . '.twig';
-    $routeParams = $app->router()->getCurrentRoute()->getParams();
-    
-    $app->render($view, array(
-      'routeParams' => $routeParams,
-      'routeData' => $routeData,
-      'routeId' => $routeData['id']
-    ));
-  })->name($routeData['id']);
-
-}
+  $app->render($view, array(
+    'routeId' => 'home'
+  ));
+})->name('home');

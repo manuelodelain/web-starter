@@ -35,8 +35,7 @@
         debug: {{ app.settings.debug ? 'true' : 'false' }},
         mode: "{{ app.settings.mode }}",
         baseUrl: "{{ baseUrl() }}",
-        rootUri: "{{ app.request.getRootUri() }}",
-        routes: {{ routes | json_encode(constant('JSON_UNESCAPED_SLASHES')) | raw }}
+        rootUri: "{{ app.request.getRootUri() }}"
       };
     </script>
 
