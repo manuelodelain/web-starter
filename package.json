@@ -8,7 +8,8 @@
     "export-archive": "gulp export --archive",
     "deploy": "gulp deploy",
     "deploy-staging": "npm run prod && npm run deploy",
-    "deploy-prod": "npm run prod && npm run deploy -- --prod"
+    "deploy-prod": "npm run prod && npm run deploy -- --prod",
+    "clean-exports": "gulp clean-exports"
   },
   "author": "",
   "license": "ISC",
