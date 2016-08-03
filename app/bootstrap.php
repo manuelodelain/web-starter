@@ -3,6 +3,7 @@
 require __DIR__ . '/config.php';
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/env.php';
+require __DIR__ . '/data.php';
 
 $routesData = json_decode(file_get_contents(DATA_PATH . '/routes.json'), true);
 
