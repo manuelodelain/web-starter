@@ -1,6 +1,6 @@
-# Starter for web projects
+# Website
 
-## App architecture
+## Architecture
 
 - app: server side code
 
