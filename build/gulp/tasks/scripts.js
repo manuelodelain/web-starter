@@ -19,7 +19,7 @@ gulp.task('scripts', function(){
     packageCache: {},
     debug: options.debug
   }).transform(babelify, {
-    presets: ['es2015-loose'],
+    presets: [['es2015', {'loose': true}]],
     only: ['./dev/js/**'],
     global: true
   });
