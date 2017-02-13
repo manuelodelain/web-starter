@@ -1,5 +1,6 @@
 node_modules/
 app/vendor/
+app/data/cache/
 app/templates/cache/
 web/
 exports/
