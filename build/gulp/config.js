@@ -12,6 +12,8 @@ module.exports = {
     './app/**',
     '!./app/templates/cache',
     '!./app/templates/cache/**',
+    '!./app/data/cache',
+    '!./app/data/cache/**',
     '!./app/config.php',
     '!./app/config.SAMPLE.php'
   ],
