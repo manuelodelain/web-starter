@@ -15,7 +15,8 @@ gulp.task('sync', function() {
   var patterns = [
     config.dest + '/**/*',
     '!' + target.sass.dest + '/*.css',
-    './app/**/*'
+    './app/**/*',
+    '!./app/data/cache/**/*'
   ];
 
   watch(patterns, browserSync.reload);
