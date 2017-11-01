@@ -18,7 +18,7 @@
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
-    <link rel="stylesheet" href="{{ baseUrl() }}/assets/css/main.css">
+    <link rel="stylesheet" href="{{ base_url() }}/assets/css/main.css">
 
     {# analytics #}
     {% if app.settings.mode == 'prod' %}
@@ -38,13 +38,13 @@
       var app = {
         debug: {{ app.settings.debug ? 'true' : 'false' }},
         mode: "{{ app.settings.mode }}",
-        baseUrl: "{{ baseUrl() }}",
+        baseUrl: "{{ base_url() }}",
         rootUri: "{{ app.request.getRootUri() }}"
       };
     </script>
 
     {# app #}
-    <script src="{{ baseUrl() }}/assets/js/scripts.js"></script>
+    <script src="{{ base_url() }}/assets/js/scripts.js"></script>
 
   </body>
 </html>

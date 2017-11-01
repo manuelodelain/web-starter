@@ -7,6 +7,11 @@
   "config": {
     "vendor-dir": "app/vendor"
   },
+  "autoload": {
+    "psr-4": {
+      "": "app/pages/"
+    }
+  },
   "scripts": {
     "post-install-cmd": "cp -n app/config.SAMPLE.php app/config.php || true"
   }
