@@ -26,8 +26,9 @@ $container['view'] = function ($container) {
       'strict_variables' => false,
   ]);
   $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
-  
+
   $view->addExtension(new \Slim\Views\TwigExtension($container['router'], $basePath));
+  $view->addExtension(new twig_extensions\SvgExtension(ASSETS_PATH));
 
   return $view;
 };

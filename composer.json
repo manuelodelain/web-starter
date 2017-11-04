@@ -9,7 +9,8 @@
   },
   "autoload": {
     "psr-4": {
-      "pages\\": "app/pages/"
+      "pages\\": "app/pages/",
+      "twig_extensions\\": "app/twig/extensions/"
     }
   },
   "scripts": {
