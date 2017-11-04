@@ -10,4 +10,4 @@
 //     'routeId' => 'home'
 //   ));
 // })->name('home');
-$app->get('/', 'Home')->setName('home');
+$app->get('/', 'pages\Home')->setName('home');

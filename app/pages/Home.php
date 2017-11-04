@@ -1,5 +1,7 @@
 <?php
 
+namespace pages;
+
 class Home extends BasePage{
   public function __construct($container){
     parent::__construct($container);
