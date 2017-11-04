@@ -1,16 +1,10 @@
 <?php
 
-use Psr\Http\Message\RequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
-
-class Home{
+class Home extends BasePage{
   public function __construct($container){
-    $this->view = $container['view'];
-  }
+    parent::__construct($container);
 
-  public function __invoke(Request $req,  Response $res, $args = []){
-    return $this->view->render($res, 'pages/home.twig', [
-      'routeId' => 'home',
-    ]);
+    $this->template = 'pages/home.twig';
+    $this->templateData['routeId'] = 'home';
   }
 }
