@@ -63,8 +63,10 @@ class SvgExtension extends \Twig_Extension
       }
     }
 
-    // remove annoying xml version added by asXML method    
-    $svgString = str_replace("<?xml version=\"1.0\"?>\n", '', $svg->asXML());
+    if ($hasAttr || $hasClasses){
+      // remove annoying xml version added by asXML method    
+      $svgString = str_replace("<?xml version=\"1.0\"?>\n", '', $svg->asXML());
+    }
 
     return $svgString;
   }
