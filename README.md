@@ -20,8 +20,8 @@
 
 - server side:
     - dependencies: Composer
-    - framework: Slim PHP
-    - templating: Twig  
+    - framework: Slim 3
+    - templating: Twig 1
   
 
 
@@ -36,6 +36,8 @@
 ## Installation
 
 ### Prerequisites:
+
+PHP 5.5+
 
 - Install composer <https://getcomposer.org/>
 - Install Node.js <https://nodejs.org/>
