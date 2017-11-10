@@ -2,6 +2,10 @@
 
 namespace twig_extensions;
 
+/**
+ * example: {{ svg('img/marker', {classes: 'special-svg', attr: {class: 'inline-svg', id: 'marker-1'}}) }}
+ */
+
 class SvgExtension extends \Twig_Extension
 {
   public function __construct($basePath){
@@ -31,8 +35,38 @@ class SvgExtension extends \Twig_Extension
       $fullPath .= '.svg';
     }
     
-    $svg = file_get_contents($fullPath);
+    $svgString = file_get_contents($fullPath);
 
-    return $svg;
+    $hasAttr = array_key_exists('attr', $params);
+    $hasClasses = array_key_exists('classes', $params);
+
+    if ($hasAttr || $hasClasses){
+      $svg = simplexml_load_string($svgString);
+      $attrs = $svg->attributes();
+    }
+
+    if ($hasAttr){
+      foreach ($params['attr'] as $key => $value) {
+        if ($attrs[$key]){
+          $attrs[$key] = $value;
+        }else{
+          $svg->addAttribute($key, $value);
+        }
+      }
+    }
+
+    if ($hasClasses){
+      if ($attrs['class']){
+        $attrs['class'] .= ' ' . $params['classes'];
+      }else{
+        $svg->addAttribute('class', $params['classes']);
+      }
+    }
+
+    // remove annoying xml version added by asXML method    
+    $svgString = str_replace("<?xml version=\"1.0\"?>\n", '', $svg->asXML());
+
+    return $svgString;
   }
 }
+

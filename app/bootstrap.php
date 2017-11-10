@@ -33,12 +33,6 @@ $container['view'] = function ($container) {
   return $view;
 };
 
-// // allow to add files from multiple directories
-// $app->view()->twigTemplateDirs = array(
-//   TEMPLATES_PATH,
-//   ASSETS_PATH,
-// );
-
 // // init twig view extensions
 // $app->view->parserExtensions = array(
 //   new \Slim\Views\TwigExtension(),
