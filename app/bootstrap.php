@@ -18,7 +18,7 @@ $container = $app->getContainer();
 
 // init template engine
 $container['view'] = function ($container) {
-  global $env;
+  global $env, $app;
 
   $settings = [
     'cache' => TEMPLATES_CACHE_PATH,
@@ -35,13 +35,11 @@ $container['view'] = function ($container) {
     $view->addExtension(new Twig_Extension_Debug());
   }
 
+  // add global data
+  $view->getEnvironment()->addGlobal('app', $app);
+
   return $view;
 };
-
-// // init view data
-// $app->view->setData(array(
-//   'app' => $app,
-// ));
 
 // init routes
 require __DIR__ . '/routes.php';
