@@ -20,24 +20,23 @@ $container = $app->getContainer();
 $container['view'] = function ($container) {
   global $env;
 
-  $view = new \Slim\Views\Twig(TEMPLATES_PATH, [
-      'cache' => TEMPLATES_CACHE_PATH,
-      'debug' => $env != 'prod',
-      'strict_variables' => false,
-  ]);
+  $settings = [
+    'cache' => TEMPLATES_CACHE_PATH,
+    'debug' => $env != 'prod',
+    'strict_variables' => false,
+  ];
+  $view = new \Slim\Views\Twig(TEMPLATES_PATH, $settings);
   $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
 
   $view->addExtension(new \Slim\Views\TwigExtension($container['router'], $basePath));
   $view->addExtension(new twig_extensions\SvgExtension(ASSETS_PATH));
 
+  if ($settings['debug']){
+    $view->addExtension(new Twig_Extension_Debug());
+  }
+
   return $view;
 };
-
-// // init twig view extensions
-// $app->view->parserExtensions = array(
-//   new \Slim\Views\TwigExtension(),
-//   new Twig_Extension_Debug(),
-// );
 
 // // init view data
 // $app->view->setData(array(
