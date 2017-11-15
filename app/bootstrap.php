@@ -24,11 +24,11 @@ $container['view'] = function ($container) {
     'debug' => $env != 'prod',
     'strict_variables' => false,
   ];
-  $view = new \Slim\Views\Twig(TEMPLATES_PATH, $settings);
+  $view = new \Slim\Views\Twig([TEMPLATES_PATH, ASSETS_PATH], $settings);
   $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
 
   $view->addExtension(new \Slim\Views\TwigExtension($container['router'], $basePath));
-  $view->addExtension(new twig_extensions\SvgExtension(ASSETS_PATH));
+  $view->addExtension(new manuelodelain\Twig\Extension\SvgExtension(ASSETS_PATH));
 
   if ($settings['debug']){
     $view->addExtension(new Twig_Extension_Debug());
