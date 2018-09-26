@@ -9,7 +9,5 @@ exports/
 *.log
 build/gulp/ftp-config.json
 app/config.php
-*.sublime-project
-*.sublime-workspace
 
 !dev/js/node_modules/
