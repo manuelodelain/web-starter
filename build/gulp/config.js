@@ -50,7 +50,7 @@ module.exports = {
         dest: baseDest + '/assets/img'
       },
       sync: {
-        proxy: 'localhost/web-starter/web'
+        proxy: 'starter.test'
       }
     },
     mobile: {}
