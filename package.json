@@ -1,6 +1,6 @@
 {
   "name": "web-starter",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "scripts": {
     "dev": "NODE_ENV=development gulp build --watch",
     "prod": "NODE_ENV=production gulp build --minify",
