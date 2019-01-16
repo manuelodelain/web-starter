@@ -13,13 +13,13 @@ var browserSync = require('browser-sync');
 gulp.task('styles', function () {
   return gulp.src(target.sass.src)
     .pipe(plumber({errorHandler: errorNotif}))
-    .pipe(gIf(options.debug, sourcemaps.init()))
+    .pipe(gIf(process.env.NODE_ENV === 'development', sourcemaps.init()))
     .pipe(sass())
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gIf(options.debug, sourcemaps.write()))
+    .pipe(gIf(process.env.NODE_ENV === 'development', sourcemaps.write()))
     .pipe(gIf(options.minify, cleanCSS()))
     .pipe(gulp.dest(target.sass.dest))
     .pipe(browserSync.stream());

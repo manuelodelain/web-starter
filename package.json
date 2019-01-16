@@ -2,8 +2,8 @@
   "name": "web-starter",
   "version": "0.1.4",
   "scripts": {
-    "dev": "gulp build --watch --debug",
-    "prod": "gulp build --minify",
+    "dev": "NODE_ENV=development gulp build --watch",
+    "prod": "NODE_ENV=production gulp build --minify",
     "export-dist": "gulp export --dist",
     "export-archive": "gulp export --archive",
     "deploy": "gulp deploy",

@@ -6,7 +6,7 @@ var del = require('del');
 gulp.task('clean', function(cb) {
   var patterns = [];
 
-  if (options.debug){
+  if (process.env.NODE_ENV === 'development'){
     patterns.push(target.sass.dest + '/*');
     patterns.push(target.js.dest + '/*.js');
   }else{
