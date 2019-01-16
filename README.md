@@ -28,7 +28,7 @@
 - client side:
     - dependencies: NPM
     - CSS: Sass
-    - JS: ES6, Browserify
+    - JS: ES6, Rollup
 
   
 - build : Gulp / NPM
