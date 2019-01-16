@@ -5,7 +5,7 @@ var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
  
 gulp.task('build', function(cb){
-  runSequence('clean', ['static', 'styles', 'scripts', 'images'], function(){
+  runSequence('clean', ['static', 'styles', 'scripts', 'images'/*, 'modernizr' */], function(){
     if (options.watch){
         watch(target.sass.src, function(){
           gulp.start('styles');
