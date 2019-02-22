@@ -1,8 +1,9 @@
 {
   "name": "web-starter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "dev": "NODE_ENV=development gulp build --watch",
+    "dev-webpack": "webpack-dev-server --config build/webpack/config/dev.js",
     "prod": "NODE_ENV=production gulp build --minify",
     "export-dist": "gulp export --dist",
     "export-archive": "gulp export --archive",
@@ -51,7 +52,10 @@
     "rollup-plugin-uglify": "^6.0.1",
     "run-sequence": "^2.2.1",
     "vinyl-ftp": "^0.6.1",
-    "watchify": "^3.11.0"
+    "watchify": "^3.11.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
   },
   "browser": {}
 }
