@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "NODE_ENV=development gulp build --watch",
     "dev-webpack": "webpack-dev-server --config build/webpack/config/dev.js",
+    "prod-webpack": "webpack --config build/webpack/config/prod.js",
     "prod": "NODE_ENV=production gulp build --minify",
     "export-dist": "gulp export --dist",
     "export-archive": "gulp export --archive",
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
     "chalk": "^2.4.2",
     "css-loader": "^2.1.0",
@@ -41,6 +43,7 @@
     "gulp-zip": "^4.2.0",
     "imagemin-pngquant": "^6.0.1",
     "install": "^0.12.2",
+    "mini-css-extract-plugin": "^0.5.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "node-notifier": "^5.3.0",
