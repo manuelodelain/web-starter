@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -20,9 +21,6 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../css/'
-            }
           },
           "css-loader",
           "sass-loader"
@@ -47,7 +45,13 @@ module.exports = {
   ],
   optimization: {
     minimizer: [
-      new OptimizeCssAssetsPlugin({})
+      new CleanWebpackPlugin([
+        'web/*.*'
+      ], {
+        root: path.resolve(__dirname, '../../../'),
+        exclude: []
+      }),
+      new OptimizeCssAssetsPlugin({}),
     ]
   },
 };
