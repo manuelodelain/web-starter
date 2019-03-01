@@ -2,7 +2,10 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, '../../../dev/js/main.js'),
+  entry: [
+    path.resolve(__dirname, '../../../dev/js/main.js'),
+    path.resolve(__dirname, '../../../dev/sass/main.scss'),
+  ],
   output: {
     filename: 'scripts.js',
     path: path.resolve(__dirname, '../../../web/assets/js')
