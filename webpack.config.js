@@ -13,6 +13,8 @@ const imageminGifsicle = require("imagemin-gifsicle");
 const imageminOptipng = require("imagemin-pngquant");
 const imageminSvgo = require("imagemin-svgo");
 
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 const mode = process.env.NODE_ENV;
 
 const config = {
@@ -50,7 +52,12 @@ const config = {
   plugins: [
     new CopyPlugin([
       {from: 'static'},
-    ])
+    ]),
+    new HtmlWebpackPlugin({
+      template: './app/templates/inject/scripts.twig',
+      filename: 'scripts-generated.twig',
+      inject: false,
+    })
   ],
 };
 
