@@ -3,8 +3,8 @@
   "version": "0.3.0",
   "scripts": {
     "dev": "NODE_ENV=development gulp build --watch",
-    "dev-webpack": "webpack-dev-server --config build/webpack/config/dev.js",
-    "prod-webpack": "webpack --config build/webpack/config/prod.js",
+    "dev-webpack": "NODE_ENV=development webpack-dev-server",
+    "prod-webpack": "NODE_ENV=production webpack",
     "prod": "NODE_ENV=production gulp build --minify",
     "export-dist": "gulp export --dist",
     "export-archive": "gulp export --archive",
