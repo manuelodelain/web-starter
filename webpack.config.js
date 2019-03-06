@@ -1,8 +1,17 @@
 const path = require('path');
+
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 const CopyPlugin = require('copy-webpack-plugin');
+
+const ImageminPlugin = require('imagemin-webpack');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminGifsicle = require("imagemin-gifsicle");
+const imageminOptipng = require("imagemin-pngquant");
+const imageminSvgo = require("imagemin-svgo");
 
 const mode = process.env.NODE_ENV;
 
@@ -41,7 +50,7 @@ const config = {
   plugins: [
     new CopyPlugin([
       {from: 'static'},
-    ]),
+    ])
   ],
 };
 
@@ -69,13 +78,33 @@ if (mode === 'development') {
   config.plugins.push(
     new MiniCssExtractPlugin({
       filename: "../css/[name].css",
+    }),
+    new ImageminPlugin({
+      name: "assets/img/[name].[ext]",
+      imageminOptions: {
+        plugins: [
+          imageminGifsicle({
+            interlaced: true
+          }),
+          imageminMozjpeg({
+            quality: 70,
+            progressive: true
+          }),
+          imageminOptipng({
+            optimizationLevel: 5
+          }),
+          imageminSvgo({
+            removeViewBox: true
+          })
+        ]
+      }
     })
   );
 
   config.optimization = {
     minimizer: [
       new CleanWebpackPlugin([
-        'web/*.*'
+        'web/**/*.*'
       ], {
         root: path.resolve(__dirname, './'),
         exclude: []
