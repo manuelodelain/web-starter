@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const mode = process.env.NODE_ENV;
 
@@ -12,8 +13,8 @@ const config = {
     path.resolve(__dirname, './dev/sass/main.scss'),
   ],
   output: {
-    filename: 'scripts.js',
-    path: path.resolve(__dirname, './web/assets/js')
+    filename: 'assets/js/scripts.js',
+    path: path.resolve(__dirname, './web')
   },
   module: {
     rules: [
@@ -37,6 +38,11 @@ const config = {
       }
     ]
   },
+  plugins: [
+    new CopyPlugin([
+      {from: 'static'},
+    ]),
+  ],
 };
 
 if (mode === 'development') {
@@ -56,14 +62,15 @@ if (mode === 'development') {
         changeOrigin: true,
         secure: false
       }
-    }
+    },
+    writeToDisk: true
   };
 } else {
-  config.plugins = [
+  config.plugins.push(
     new MiniCssExtractPlugin({
       filename: "../css/[name].css",
     })
-  ];
+  );
 
   config.optimization = {
     minimizer: [
