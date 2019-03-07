@@ -55,7 +55,7 @@ const config = {
     ]),
     new HtmlWebpackPlugin({
       template: './app/templates/inject/scripts.twig',
-      filename: 'scripts-generated.twig',
+      filename: '../app/templates/inject/scripts-generated.twig',
       inject: false,
     })
   ],
