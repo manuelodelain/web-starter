@@ -18,6 +18,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
+    "autoprefixer": "^9.4.10",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
     "chalk": "^2.4.2",
@@ -56,6 +57,7 @@
     "node-notifier": "^5.3.0",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
     "require-dir": "^1.2.0",
     "rollup": "^1.1.0",
     "rollup-plugin-babel": "^4.3.0",
@@ -73,7 +75,10 @@
     "webpack-dev-server": "^3.2.0"
   },
   "browser": {},
-  "dependencies": {
-    "gsap": "^2.1.2"
-  }
+  "dependencies": {},
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "not IE 10"
+  ]
 }

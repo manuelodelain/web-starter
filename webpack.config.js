@@ -33,9 +33,20 @@ const config = {
       {
         test: /\.scss$/,
         use: [
-          mode === 'development' ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader"
+          {
+            loader: mode === 'development' ? "style-loader" : MiniCssExtractPlugin.loader,
+            options: {
+              sourceMap: mode === 'development'
+            }
+          },
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'postcss-loader', options: { 
+            sourceMap: true,
+            plugins: [
+              require('autoprefixer')
+            ]
+          } },
+          { loader: 'sass-loader', options: { sourceMap: true } }
         ]
       },
       {
