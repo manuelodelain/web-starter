@@ -4,7 +4,8 @@
 if (
   @$_SERVER['APPLICATION_ENV'] == 'local' || 
   strpos($_SERVER['HTTP_HOST'],  'localhost') !== false || 
-  strpos($_SERVER['HTTP_HOST'],  '127.0.0.1') !== false
+  strpos($_SERVER['HTTP_HOST'],  '127.0.0.1') !== false || 
+  strpos($_SERVER['HTTP_HOST'],  '.test') !== false
   ) 
 {
   $env = 'dev';
