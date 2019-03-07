@@ -20,7 +20,7 @@ $container['view'] = function ($container) {
   global $env, $app;
 
   $settings = [
-    'cache' => TEMPLATES_CACHE_PATH,
+    'cache' => $env != 'prod' ? false : TEMPLATES_CACHE_PATH,
     'debug' => $env != 'prod',
     'strict_variables' => false,
   ];
