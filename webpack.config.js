@@ -72,7 +72,7 @@ const config = {
 if (mode === 'development') {
   config.devServer = {
     contentBase:  path.resolve(__dirname, './web/'),
-    publicPath: '/assets/js/',
+    // publicPath: '/assets/js/',
     host: '0.0.0.0',
     port: '3000',
     proxy: {
@@ -92,7 +92,7 @@ if (mode === 'development') {
 } else {
   config.plugins.push(
     new MiniCssExtractPlugin({
-      filename: "assets/css/[name].[contenthash].css",
+      filename: mode === 'development' ? "assets/css/[name].css" : "assets/css/[name].[contenthash].css",
     }),
     new ImageminPlugin({
       name: "assets/img/[name].[ext]",
