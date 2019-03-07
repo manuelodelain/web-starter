@@ -18,7 +18,7 @@
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
-    <link rel="stylesheet" href="{{ base_url() }}/assets/css/main.css">
+    {% include "inject/styles.twig" %}
 
     {# analytics #}
     {% if app.settings.mode == 'prod' %}
@@ -44,7 +44,7 @@
     </script>
 
     {# app #}
-    {% include "inject/scripts-generated.twig" %}
+    {% include "inject/scripts.twig" %}
 
   </body>
 </html>

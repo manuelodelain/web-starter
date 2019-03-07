@@ -24,15 +24,16 @@ const config = {
     path.resolve(__dirname, './dev/sass/main.scss'),
   ],
   output: {
-    filename: 'assets/js/scripts.js',
-    path: path.resolve(__dirname, './web')
+    filename: 'assets/js/scripts.[contenthash].js',
+    path: path.resolve(__dirname, './web'),
+    publicPath: '/',
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [
-          "style-loader",
+          mode === 'development' ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
           "sass-loader"
         ]
@@ -54,9 +55,16 @@ const config = {
       {from: 'static'},
     ]),
     new HtmlWebpackPlugin({
-      template: './app/templates/inject/scripts.twig',
-      filename: '../app/templates/inject/scripts-generated.twig',
+      template: './app/templates/inject/scripts-template.twig',
+      filename: '../app/templates/inject/scripts.twig',
       inject: false,
+      generatedWarning: 'dynamically generated - do not modify',
+    }),
+    new HtmlWebpackPlugin({
+      template: './app/templates/inject/styles-template.twig',
+      filename: '../app/templates/inject/styles.twig',
+      inject: false,
+      generatedWarning: 'dynamically generated - do not modify'
     })
   ],
 };
@@ -84,7 +92,7 @@ if (mode === 'development') {
 } else {
   config.plugins.push(
     new MiniCssExtractPlugin({
-      filename: "../css/[name].css",
+      filename: "assets/css/[name].[contenthash].css",
     }),
     new ImageminPlugin({
       name: "assets/img/[name].[ext]",
