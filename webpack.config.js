@@ -117,6 +117,15 @@ if (mode === 'development') {
   );
 
   config.optimization = {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          filename: 'assets/js/vendors.[contenthash].js',
+        }
+      },
+    },
     minimizer: [
       new CleanWebpackPlugin([
         'web/**/*.*'
