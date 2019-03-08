@@ -21,6 +21,9 @@ module.exports = (buildType) => {
       path: path.resolve(__dirname, '../../web'),
       publicPath: '/',
     },
+    resolve: {
+      modules: [path.resolve(__dirname, '../../dev/js'), 'node_modules']
+    },
     plugins: [
       new WebpackNotifierPlugin()
     ]
