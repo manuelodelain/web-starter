@@ -1,4 +1,0 @@
-{# <%= htmlWebpackPlugin.options.generatedWarning %> #}
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-<script nomodule src="{{ base_url() }}<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %>
