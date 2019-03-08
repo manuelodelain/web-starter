@@ -218,16 +218,14 @@ const getImageConfig = () => {
 
 const getCleanConfig = () => {
   return {
-    optimization: {
-      minimizer: [
-        new CleanWebpackPlugin([
-          'web/**/*.*'
-        ], {
-          root: path.resolve(__dirname, './'),
-          exclude: []
-        }),
-      ]
-    }
+    plugins: [
+      new CleanWebpackPlugin([
+        'web/**/*.*'
+      ], {
+        root: path.resolve(__dirname, './'),
+        exclude: []
+      }),
+    ]
   }
 };
 
