@@ -10,7 +10,4 @@ exports/
 
 .DS_Store
 *.log
-build/gulp/ftp-config.json
 app/config.php
-
-!dev/js/node_modules/
