@@ -1,5 +1,7 @@
 const path = require('path');
 
+var WebpackNotifierPlugin = require('webpack-notifier');
+
 const BUILD_TYPE = require('./constants').BUILD_TYPE;
 
 const mode = process.env.NODE_ENV;
@@ -19,5 +21,8 @@ module.exports = (buildType) => {
       path: path.resolve(__dirname, '../../web'),
       publicPath: '/',
     },
+    plugins: [
+      new WebpackNotifierPlugin()
+    ]
   }
 };
