@@ -4,6 +4,7 @@ app/data/cache/
 app/templates/cache/
 app/templates/inject/scripts-legacy.twig
 app/templates/inject/scripts-modern.twig
+app/templates/inject/styles.twig
 web/
 exports/
 
