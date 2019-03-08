@@ -3,7 +3,8 @@
   "version": "0.3.0",
   "scripts": {
     "dev": "NODE_ENV=development gulp build --watch",
-    "dev-webpack": "NODE_ENV=development webpack-dev-server",
+    "dev-webpack": "NODE_ENV=development BUILD_TYPE=modern webpack-dev-server",
+    "dev-legacy-webpack": "NODE_ENV=development BUILD_TYPE=legacy webpack-dev-server",
     "prod-webpack": "NODE_ENV=production webpack",
     "prod": "NODE_ENV=production gulp build --minify",
     "export-dist": "gulp export --dist",
@@ -68,11 +69,13 @@
     "run-sequence": "^2.2.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.3",
     "vinyl-ftp": "^0.6.1",
     "watchify": "^3.11.0",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.0"
+    "webpack-dev-server": "^3.2.0",
+    "webpack-merge": "^4.2.1"
   },
   "browser": {},
   "dependencies": {},
