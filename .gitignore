@@ -2,6 +2,8 @@ node_modules/
 app/vendor/
 app/data/cache/
 app/templates/cache/
+app/templates/inject/scripts-legacy.twig
+app/templates/inject/scripts-modern.twig
 web/
 exports/
 
