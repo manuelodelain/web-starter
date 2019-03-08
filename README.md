@@ -28,10 +28,10 @@
 - client side:
     - dependencies: NPM
     - CSS: Sass
-    - JS: ES6, Rollup
+    - JS: ES6
 
   
-- build : Gulp / NPM
+- build : Webpack / NPM
 
 ## Installation
 
