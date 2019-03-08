@@ -44,7 +44,8 @@
     </script>
 
     {# app #}
-    {% include "inject/scripts.twig" %}
+    {% include "inject/scripts-modern.twig" ignore missing %}
+    {% include "inject/scripts-legacy.twig" ignore missing %}
 
   </body>
 </html>

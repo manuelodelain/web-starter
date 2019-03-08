@@ -28,7 +28,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const getConfig = (buildType) => {
   let config = merge(
     getBaseConfig(buildType),
-    getScriptsConfig(),
+    getScriptsConfig(buildType),
   );
 
   if (mode === 'development') {
@@ -49,12 +49,15 @@ const getConfig = (buildType) => {
 };
 
 const getBaseConfig = (buildType) => {
+  const entry = [path.resolve(__dirname, './dev/js/main.js')];
+
+  if (mode === 'development' || buildType === MODERN_BUILD_TYPE) {
+    entry.push(path.resolve(__dirname, './dev/sass/main.scss'));
+  }
+
   return {
     mode,
-    entry: [
-      path.resolve(__dirname, './dev/js/main.js'),
-      path.resolve(__dirname, './dev/sass/main.scss'),
-    ],
+    entry,
     output: {
       filename: `assets/js/${buildType === MODERN_BUILD_TYPE ? 'scripts' : 'legacy'}.[contenthash].js`,
       path: path.resolve(__dirname, './web'),
@@ -92,6 +95,12 @@ const getSassConfig = () => {
       new MiniCssExtractPlugin({
         filename: mode === 'development' ? "assets/css/[name].css" : "assets/css/[name].[contenthash].css",
       }),
+      new HtmlWebpackPlugin({
+        template: './app/templates/inject/styles-template.twig',
+        filename: '../app/templates/inject/styles.twig',
+        inject: false,
+        generatedWarning: 'dynamically generated - do not modify'
+      })
     ],
     optimization: {
       minimizer: [
@@ -103,7 +112,7 @@ const getSassConfig = () => {
   return config;
 };
 
-const getScriptsConfig = () => {
+const getScriptsConfig = (buildType) => {
   let config = {
     module: {
       rules: [
@@ -121,16 +130,10 @@ const getScriptsConfig = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './app/templates/inject/scripts-template.twig',
-        filename: '../app/templates/inject/scripts.twig',
+        template: `./app/templates/inject/scripts-${buildType}-template.twig`,
+        filename: `../app/templates/inject/scripts-${buildType}.twig`,
         inject: false,
         generatedWarning: 'dynamically generated - do not modify',
-      }),
-      new HtmlWebpackPlugin({
-        template: './app/templates/inject/styles-template.twig',
-        filename: '../app/templates/inject/styles.twig',
-        inject: false,
-        generatedWarning: 'dynamically generated - do not modify'
       })
     ],
     optimization: {
@@ -230,12 +233,12 @@ const getCleanConfig = () => {
 
 let config;
 
-if (mode === 'developmennt') {
+if (mode === 'development') {
   config = getConfig(buildType);
 } else {
   config = [
     getConfig(MODERN_BUILD_TYPE),
-    // getConfig(LEGACY_BUILD_TYPE)
+    getConfig(LEGACY_BUILD_TYPE)
   ];
 }
 
