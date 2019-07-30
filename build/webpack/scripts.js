@@ -33,6 +33,7 @@ module.exports = (buildType) => {
         {
           test: /\.js$/,
           // exclude: /node_modules\/(?!(screen-navigator)\/).*/,
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
