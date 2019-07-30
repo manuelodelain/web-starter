@@ -1,11 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const chokidar = require( 'chokidar' );
+const chokidar = require('chokidar');
 
 module.exports = () => {
   return {
     devServer: {
-      contentBase:  path.resolve(__dirname, '../../web/'),
+      contentBase:  path.resolve(__dirname, `../../${process.env.WEB_DIR}/`),
       // publicPath: '/assets/js/',
       host: '0.0.0.0',
       port: '3000',

@@ -2,11 +2,16 @@ const gulp = require('gulp');
 const zip = require('gulp-zip');
 const exec = require('child_process').exec;
 const mkdirp = require('mkdirp');
+
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const distFiles = [
   './app/**',
-  '!./app/var/**',
-  './public/**',
-  '!./public/.htaccess',
+  `!./app/${process.env.TEMP_DIR}/**`,
+  `./${process.env.WEB_DIR}/**`,
+  `!./${process.env.WEB_DIR}/.htaccess`,
 ];
 const isDist = process.env.EXPORT_TYPE === 'dist';
 

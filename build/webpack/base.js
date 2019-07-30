@@ -4,6 +4,9 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const BUILD_TYPE = require('./constants').BUILD_TYPE;
 
 const mode = process.env.NODE_ENV;
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 module.exports = (buildType) => {
   const entry = [];
@@ -29,7 +32,7 @@ module.exports = (buildType) => {
     entry,
     output: {
       filename: `assets/js/${fileName}.[${hash}].js`,
-      path: path.resolve(__dirname, '../../public'),
+      path: path.resolve(__dirname, `../../${process.env.WEB_DIR}`),
       publicPath: '/',
     },
     resolve: {
