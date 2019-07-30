@@ -18,7 +18,7 @@ module.exports = (buildType) => {
     entry,
     output: {
       filename: `assets/js/${buildType === BUILD_TYPE.MODERN ? 'scripts' : 'legacy'}.[contenthash].js`,
-      path: path.resolve(__dirname, '../../web'),
+      path: path.resolve(__dirname, '../../public'),
       publicPath: '/',
     },
     resolve: {
