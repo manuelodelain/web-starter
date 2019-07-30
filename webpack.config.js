@@ -12,6 +12,7 @@ const staticConfig = require('./build/webpack/static');
 const devServerConfig = require('./build/webpack/dev-server');
 const imagesConfig = require('./build/webpack/images');
 const cleanConfig = require('./build/webpack/clean');
+const fontsConfig = require('./build/webpack/fonts');
 
 const getConfig = (buildType) => {
   let config = merge(
@@ -29,7 +30,8 @@ const getConfig = (buildType) => {
       cleanConfig(),
       staticConfig(),
       imagesConfig(),
-      sassConfig()
+      sassConfig(),
+      fontsConfig()
     );
   }
 
