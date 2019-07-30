@@ -3,4 +3,4 @@
 /**
  * Home
  */
-$app->get('/', 'src\pages\Home')->setName('home');
+$app->get('/', 'src\pages\controllers\BaseController')->setName('home');

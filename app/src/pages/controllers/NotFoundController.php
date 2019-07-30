@@ -1,8 +1,11 @@
 <?php
 
-namespace src\pages;
+namespace src\pages\controllers;
 
-class NotFound extends BasePage{
+use Psr\Http\Message\RequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+
+class NotFoundController extends BaseController {
   public function __invoke(Request $request, Response $response, $args = []){
     $response = parent::__invoke($request, $response, $args);
     
