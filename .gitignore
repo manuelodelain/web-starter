@@ -10,3 +10,6 @@ exports/
 .DS_Store
 *.log
 app/config.php
+
+.env*
+!.env.example

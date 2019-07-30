@@ -3,7 +3,8 @@
     "slim/slim": "^3.0",
     "twig/twig": "1.*",
     "slim/twig-view": "^2.3",
-    "manuelodelain/svg-twig-extension": "^0.1.0"
+    "manuelodelain/svg-twig-extension": "^0.1.0",
+    "symfony/dotenv": "^4.3"
   },
   "config": {
     "vendor-dir": "app/vendor"
