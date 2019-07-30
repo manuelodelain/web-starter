@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "pages\\": "app/pages/"
+      "src\\": "app/src/"
     }
   },
   "scripts": {

@@ -1,6 +1,6 @@
 <?php
 
-namespace pages;
+namespace src\pages;
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;

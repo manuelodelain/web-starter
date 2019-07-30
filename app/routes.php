@@ -3,4 +3,4 @@
 /**
  * Home
  */
-$app->get('/', 'pages\Home')->setName('home');
+$app->get('/', 'src\pages\Home')->setName('home');

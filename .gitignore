@@ -1,11 +1,10 @@
 node_modules/
 app/vendor/
-app/data/cache/
-app/templates/cache/
+app/var/
 app/templates/inject/scripts-legacy.twig
 app/templates/inject/scripts-modern.twig
 app/templates/inject/styles.twig
-web/
+public/
 exports/
 
 .DS_Store

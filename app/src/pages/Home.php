@@ -1,6 +1,6 @@
 <?php
 
-namespace pages;
+namespace src\pages;
 
 class Home extends BasePage{
   public function __construct($container){
