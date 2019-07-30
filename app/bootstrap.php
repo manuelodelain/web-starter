@@ -19,9 +19,9 @@ $config = [
 $container = new \Slim\Container($config);
 
 //Override the default Not Found Handler before creating App
-// $container['notFoundHandler'] = function ($container) {
-//   return new \src\pages\BasePage($container);
-// };
+$container['notFoundHandler'] = function ($container) {
+  return new \src\pages\BasePage($container);
+};
 
 // create app
 $app = new \Slim\App($container);

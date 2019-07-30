@@ -1,10 +1,6 @@
-{% extends app.request.isAjax() ? 'layouts/ajax.twig' : 'layouts/default.twig' %}
+{% extends 'pages/base.twig' %}
 
-{% block content %}
-
-<section class="page" id="home-page">
+{% block page_content %}
   <h1>home</h1>
-</section>
-
 {% endblock %}
 

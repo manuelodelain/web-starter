@@ -1,0 +1,16 @@
+{% extends is_ajax ? 'layouts/ajax.twig' : 'layouts/default.twig' %}
+
+{% set page_class = route_id ~ (page_class is defined ? (' ' ~ page_class)) %}
+{% set page_attributes = (page_attributes is defined) ? (' ' ~ page_attributes) : null %}
+
+{% block content %}
+
+<section 
+    class="page {{ page_class }}" 
+    data-page="{{ route_id }}" 
+    {{ page_attributes|raw }}>
+    {% block page_content %}
+    {% endblock %}
+</section>
+
+{% endblock %}
