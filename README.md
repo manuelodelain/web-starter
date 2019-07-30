@@ -6,22 +6,22 @@
 
 - build: scripts for building the website
 
-- dev: client side sources
+- assets: client side sources
 
-- static: files for building the public folder (web/)
+- static: files for building the public folder
 
 - node_modules: npm packages (auto generated)
 
 - exports: project exports (auto generated)
 
-- web: public stuff (auto generated)
+- public: public stuff (auto generated)
 
 ## Technos
 
 - server side:
     - dependencies: Composer
     - framework: Slim 3
-    - templating: Twig 1
+    - templating: Twig 2
   
 
 
@@ -48,8 +48,6 @@ PHP 5.5+
 
 - Install js packages: `npm install`
 
-- [Optionnal] If you want to use Browsersync with a proxy, configure it in the `build/gulp/config.js` file (`sync` field for each target). Default to `localhost/web-starter/web`
-
 ## Development
 
 Launch: `npm run dev`
@@ -62,20 +60,19 @@ Export a package: `npm run export-dist`
   
 Inside the exports/dist/ folder, there is the exported package with these folders:  
   - app/  
-  - web/
+  - public/
   
 Push these folders online at the root.  
 
 Some files are not in the export.  
 You have to configure them manualy:  
 
-- app/config.php  
-- web/.htaccess  
+- public/.htaccess  
 
-## Archive project sources
+<!-- ## Archive project sources
 
 Export the project: `npm run export-archive`  
-Get the archive file inside the exports/archive/ folder.
+Get the archive file inside the exports/archive/ folder. -->
 
 
 
