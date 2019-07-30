@@ -13,26 +13,28 @@ module.exports = () => {
           test: /\.scss$/,
           use: [
             {
-              loader: mode === 'development' ? "style-loader" : MiniCssExtractPlugin.loader,
+              loader: MiniCssExtractPlugin.loader,
               options: {
-                sourceMap: mode === 'development'
+                hmr:  mode === 'development',
+                sourceMap: mode === 'development',
+                reloadAll: true, // fix HMR who is only reload the latest css files in the DOM
               }
             },
-            { loader: 'css-loader', options: { sourceMap: true } },
+            { loader: 'css-loader', options: {sourceMap: mode === 'development'} },
             { loader: 'postcss-loader', options: { 
-              sourceMap: true,
+              sourceMap: mode === 'development',
               plugins: [
                 require('autoprefixer')
               ]
             } },
-            { loader: 'sass-loader', options: { sourceMap: true } }
+            { loader: 'sass-loader', options: {sourceMap: mode === 'development'} }
           ]
         },
       ],
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: mode === 'development' ? "assets/css/[name].css" : "assets/css/[name].[contenthash].css",
+        filename: mode === 'development' ? 'assets/css/[name].css' : 'assets/css/[name].[contenthash].css',
       }),
       new HtmlWebpackPlugin({
         template: './app/templates/inject/styles-template.twig',
