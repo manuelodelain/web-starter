@@ -1,17 +1,42 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
+const BUILD_TYPE = require('./constants').BUILD_TYPE;
+
+const mode = process.env.NODE_ENV;
+
+/**
+ * 
+ * @param {String} buildType 'modern' or 'legacy'
+ */
+function getBabelPresetOptions (buildType) {
+  const settings = {
+    useBuiltIns: 'usage',
+    // debug: true,
+    corejs: {version: 3, proposals: true}
+  };
+
+  if (buildType === BUILD_TYPE.MODERN) {
+   settings.targets = {esmodules: true};
+   settings.modules = false;
+  }
+
+  return ['@babel/preset-env', settings];
+}
+
 module.exports = (buildType) => {
+  const hash = mode === 'development' ? 'hash' : 'contenthash';
+
   let config = {
     module: {
       rules: [
         {
           test: /\.js$/,
-          exclude: /(node_modules)/,
+          // exclude: /node_modules\/(?!(screen-navigator)\/).*/,
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
+              presets: [getBabelPresetOptions(buildType)]
             }
           }
         }
@@ -34,7 +59,7 @@ module.exports = (buildType) => {
           vendors: {
             test: /[\\/]node_modules[\\/]/,
             chunks: 'all',
-            filename: 'assets/js/vendors.[contenthash].js',
+            filename: `assets/js/vendors.[${hash}].js`,
           }
         },
       }
