@@ -1,32 +1,27 @@
-const ImageminPlugin = require('imagemin-webpack');
-
-const imageminMozjpeg = require('imagemin-mozjpeg');
-const imageminGifsicle = require("imagemin-gifsicle");
-const imageminOptipng = require("imagemin-pngquant");
-const imageminSvgo = require("imagemin-svgo");
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = () => {
   return {
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.(jpe?g|png|gif|svg)$/,
+    //       use: [
+    //         {
+    //           loader: 'file-loader',
+    //           options: {
+    //             outputPath: 'assets/img'
+    //           }
+    //         }
+    //       ]
+    //     }
+    //   ],
+    // },
     plugins: [
       new ImageminPlugin({
-        name: "assets/img/[name].[ext]",
-        imageminOptions: {
-          plugins: [
-            imageminGifsicle({
-              interlaced: true
-            }),
-            imageminMozjpeg({
-              quality: 70,
-              progressive: true
-            }),
-            imageminOptipng({
-              optimizationLevel: 5
-            }),
-            imageminSvgo({
-              removeViewBox: true
-            })
-          ]
-        }
+        test: 'assets/img/**',
+        name: 'assets/img/[name].[ext]',
+        svgo: { removeViewBox: true },
       })
     ]
   };
