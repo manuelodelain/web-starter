@@ -21,10 +21,8 @@
     {% include "inject/styles.twig" %}
 
     {# analytics #}
-    {% if app.settings.mode == 'prod' %}
-    {% endif %}
   </head>
-  <body class="page-id-{{ routeId }}">
+  <body class="page-id-{{ route_id }}">
 
     {% include 'components/nav.twig' %}
 
@@ -36,17 +34,14 @@
     {# shared data #}
     <script>
       var app = {
-        debug: {{ app.settings.debug ? 'true' : 'false' }},
-        mode: "{{ app.settings.mode }}",
-        baseUrl: "{{ base_url() }}",
-        rootUri: "{{ app.request.getRootUri() }}"
+        debug: {{ debug ? 'true' : 'false' }},
+        rootUrl: '{{ root_url }}',
       };
     </script>
 
     {# app #}
     {% include "inject/scripts-modern.twig" ignore missing %}
     {% include "inject/scripts-legacy.twig" ignore missing %}
-
   </body>
 </html>
 
