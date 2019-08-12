@@ -1,6 +1,6 @@
 {
   "name": "web-starter",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "scripts": {
     "dev": "NODE_ENV=development BUILD_TYPE=modern webpack-dev-server",
     "dev-legacy": "NODE_ENV=development BUILD_TYPE=legacy webpack-dev-server",
